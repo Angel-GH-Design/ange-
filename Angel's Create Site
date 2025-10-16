@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+  🔧 INSTRUCTION: To make project links work
+  1️⃣ Upload your .docx or .pdf files to Google Drive.
+  2️⃣ Right-click each file → Share → Anyone with link → Viewer.
+  3️⃣ Copy the share link (looks like https://drive.google.com/file/d/.../view?usp=sharing).
+  4️⃣ Replace each placeholder link below ("https://drive.google.com/your-link-here") with your own link.
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angel Creative — Blue & White Luxury Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:#004aad;--light:#f9fbff;--aqua:#1ecbe1;--dark:#1a1a1a;--muted:#5f6470;--shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;color:var(--dark);background:linear-gradient(180deg,var(--light),#eaf0fa);overflow-x:hidden;scroll-behavior:smooth;}
+    header{position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);box-shadow:0 2px 10px rgba(0,0,0,.04);z-index:10;}
+    nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;padding:1em 2em;}
+    .logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.3em;color:var(--blue);display:flex;align-items:center;gap:10px}
+    .navlinks a{margin:0 12px;font-weight:600;color:var(--dark);text-decoration:none;transition:color .3s}
+    .navlinks a:hover{color:var(--blue)}
+    .btn{padding:.6em 1em;border:none;border-radius:20px;background:linear-gradient(135deg,var(--blue),var(--aqua));color:white;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:transform .3s, box-shadow .3s;display:inline-block;text-decoration:none;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15);}
+
+    .hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;max-width:1200px;margin:auto;padding:6em 2em 4em;}
+    .hero-text{flex:1 1 500px;}
+    .hero-text h1{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(2em,4vw,3.5em);color:var(--blue);margin-bottom:.4em;animation:fadeDown 1.2s ease both;}
+    .hero-text p{max-width:500px;font-size:1.1em;color:var(--muted);animation:fadeDown 1.6s ease both;}
+    .hero-text .btn{margin-top:1.2em;animation:fadeDown 2s ease both;}
+    .hero-photo{flex:1 1 320px;text-align:center;animation:fadeIn 1.8s ease both;}
+    .hero-photo img{width:320px;height:320px;object-fit:cover;border-radius:50%;box-shadow:0 20px 40px rgba(0,0,0,.15);border:6px solid #fff;}
+
+    section{max-width:1200px;margin:auto;padding:4em 2em;}
+    h2{font-family:'Poppins',sans-serif;font-size:2em;font-weight:700;color:var(--blue);margin-bottom:.6em;text-align:center;}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5em;margin-top:2em;}
+    .card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:1.5em;transition:transform .3s,box-shadow .3s;text-align:center;}
+    .card:hover{transform:translateY(-5px);box-shadow:0 10px 35px rgba(0,0,0,.1);}
+    .card h3{margin-bottom:.4em;color:var(--dark);}
+    .card p{color:var(--muted);line-height:1.6;min-height:70px;}
+    .card .btn{margin-top:1em;}
+
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:2em;margin-top:2em;}
+    .contact .box{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:2em;}
+    form{display:grid;gap:1em;}
+    input,textarea{padding:1em;border:1px solid #dfe4f0;border-radius:12px;font-size:1em;width:100%;}
+    textarea{min-height:120px;}
+
+    footer{background:var(--blue);color:white;text-align:center;padding:1.5em 1em;margin-top:4em;font-weight:500;}
+
+    #topBtn{position:fixed;bottom:30px;right:25px;width:50px;height:50px;border:none;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--aqua));color:#fff;font-size:24px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease;z-index:20;}
+    #topBtn:hover{box-shadow:0 10px 25px rgba(0,0,0,.25);}
+
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+    @media(max-width:768px){.contact{grid-template-columns:1fr;}.hero{flex-direction:column-reverse;text-align:center;}.hero-text p{margin:auto;}}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Angel Creative</div>
+      <div class="navlinks">
+        <a href="#work">Work</a>
+        <a href="#research">Research</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn">Hire Me</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Creative Marketing & Web Design with Strategy</h1>
+      <p>Welcome to Angel Creative — where modern design meets data-driven business insight. Explore professional web design, branding, and MBA research projects crafted for lasting impressions.</p>
+      <a href="#work" class="btn">Explore My Work</a>
+    </div>
+    <div class="hero-photo">
+      <img src="S__154189829.jpg" alt="Angel Profile Photo"/>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <div class="card"><h3>Angel’s Studio</h3><p>Personal branding system including logo, typography, and digital identity guidelines in a clean minimal style.</p></div>
+      <div class="card"><h3>Travelness Agency</h3><p>Tourism website concept with a seamless booking flow, immersive visuals, and customer engagement features.</p><a class="btn" href="https://drive.google.com/your-link-here" target="_blank">🔍 View Project</a><!-- Replace with your Google Drive link -->
+      </div>
+      <div class="card"><h3>Cloud in Healthcare (By Girl’s Group)</h3><p>Collaborative project exploring cloud computing and telemedicine security for smarter hospitals.</p><a class="btn" href="https://drive.google.com/your-link-here" target="_blank">🔍 View Project</a><!-- Replace with your Google Drive link -->
+      </div>
+      <div class="card"><h3>Dove Face Mask Campaign</h3><p>Comprehensive marketing launch plan combining digital, traditional, and experiential strategies for Dove’s skincare line.</p><a class="btn" href="https://drive.google.com/your-link-here" target="_blank">🔍 View Project</a><!-- Replace with your Google Drive link -->
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research & Academic Work</h2>
+    <div class="grid">
+      <div class="card"><h3>Leadership Theories</h3><p>Evolution from trait to transformational and servant leadership with Thai Airways case insights.</p><a class="btn" href="https://drive.google.com/your-link-here" target="_blank">🔍 View Project</a><!-- Replace with your Google Drive link -->
+      </div>
+      <div class="card"><h3>GreenTech Myanmar</h3><p>Strategic renewable energy market analysis and sustainable marketing frameworks for Myanmar.</p><a class="btn" href="https://drive.google.com/your-link-here" target="_blank">🔍 View Project</a><!-- Replace with your Google Drive link -->
+      </div>
+      <div class="card"><h3>International Business Environment</h3><p>Comprehensive study on global BPO expansion strategies under Swiss MBA program.</p><a class="btn" href="https://drive.google.com/your-link-here" target="_blank">🔍 View Project</a><!-- Replace with your Google Drive link -->
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact">
+      <div class="box">
+        <h3>Contact Info</h3>
+        <p><strong>Address:</strong> Supalai Park 2, Building B, Chakthucha, Bangkok</p>
+        <p><strong>Phone:</strong> <a href="tel:+66650202011">+66 650 202 011</a><br><strong>Email:</strong> <a href="mailto:angeldj1103@gmail.com">angeldj1103@gmail.com</a></p>
+      </div>
+      <div class="box">
+        <h3>Send a Message</h3>
+        <form onsubmit="return sendMail(event)">
+          <input id="name" placeholder="Your Name" required>
+          <input id="email" type="email" placeholder="Your Email" required>
+          <textarea id="message" placeholder="Your Message" required></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Angel Creative — Blue & White Luxury Edition</footer>
+
+  <button id="topBtn" title="Back to top">↑</button>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const topBtn=document.getElementById('topBtn');
+    window.addEventListener('scroll',()=>{
+      if(document.body.scrollTop>400||document.documentElement.scrollTop>400){
+        topBtn.style.opacity='1';topBtn.style.visibility='visible';
+      } else {
+        topBtn.style.opacity='0';topBtn.style.visibility='hidden';
+      }
+    });
+    topBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+
+    function sendMail(e){
+      e.preventDefault();
+      const n=encodeURIComponent(document.getElementById('name').value.trim());
+      const em=encodeURIComponent(document.getElementById('email').value.trim());
+      const m=encodeURIComponent(document.getElementById('message').value.trim());
+      const body=`Hello Angel,%0D%0A%0D%0AMy name is ${n} (${em}).%0D%0A%0D%0A${m}%0D%0A%0D%0A— Sent from Angel Creative Luxury Site`;
+      window.location.href=`mailto:angeldj1103@gmail.com?subject=Inquiry from ${n}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
