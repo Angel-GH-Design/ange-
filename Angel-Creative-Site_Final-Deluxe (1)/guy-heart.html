@@ -1,75 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Guy Heart Photography — Wedding Photography</title>
-<meta name="description" content="Capturing emotional and memorable wedding stories." />
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-8wok5n+VjWkt8s4F6p7nJb0oQ5ZlA4q0p3m3bQd9v9k2pDE5Q5oQf0x0T8N0f0H3c8l3c0h+1m5QbZrRZ9r5xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guy Heart Photography — Destination Weddings &amp; Cinematic Storytelling</title>
+  <meta name="description" content="Luxury wedding photography &amp; films across Thailand and destinations worldwide. Timeless portraits, editorial candids, and cinematic stories." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    /* ====== Root palette (Luxury Rose‑Gold on Deep Navy) ====== */
+    :root{
+      --bg:#0e121c;          /* deep night navy */
+      --bg-soft:#121726;     /* softer navy */
+      --panel:#0b0f19;       /* dark card */
+      --text:#f4f6fb;        /* near white */
+      --muted:#b9c1d0;       /* cool grey */
+      --gold:#C48F85;        /* metallic rose‑gold */
+      --gold-2:#e8c1b9;      /* pale rose */
+      --glass:rgba(255,255,255,.06);
+      --radius:22px;
+      --shadow:0 20px 60px rgba(0,0,0,.40);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; line-height:1.7; color:var(--text);
+      background: radial-gradient(1400px 800px at 5% -10%, #1a2238, transparent 55%),
+                  radial-gradient(1100px 700px at 110% 10%, #1e2740, transparent 60%),
+                  linear-gradient(180deg, var(--bg), var(--bg-soft));
+      overflow-x:hidden;
+    }
+    h1,h2{font-family:"Playfair Display", serif; line-height:1.08}
+    h1{font-size:clamp(40px,6vw,72px); margin:0 0 14px}
+    h2{font-size:clamp(28px,4.6vw,46px); margin:0 0 12px}
+    h3{font-size:clamp(18px,2.6vw,24px); margin:0 0 10px}
+    p{margin:0 0 12px}
+    .container{width:min(1200px,92vw); margin:0 auto}
+    .section{padding:90px 0}
+    a{color:var(--gold); text-decoration:none}
+    a:hover{opacity:.92}
+
+    /* ====== Nav ====== */
+    .nav{position:sticky;top:0;z-index:40; backdrop-filter: blur(10px); background:linear-gradient(180deg, rgba(11,15,25,.85), rgba(11,15,25,.35)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav .inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{display:flex;gap:14px;align-items:center}
+    .crest{width:42px;height:42px;border-radius:14px; background:conic-gradient(from 0deg, var(--gold), #f6dbd4, var(--gold)); box-shadow:inset 0 0 18px rgba(255,255,255,.35), var(--shadow)}
+    .menu{display:flex;gap:24px;align-items:center}
+    .btn{display:inline-flex;gap:10px;align-items:center;border-radius:999px;padding:12px 18px;border:1px solid var(--gold);color:var(--gold); background:transparent; font-weight:700}
+    .btn.filled{background:linear-gradient(180deg, color-mix(in oklab, var(--gold) 20%, #fff 8%), var(--gold)); color:#2c1715; box-shadow:0 8px 22px rgba(196,143,133,.35)}
+
+    /* ====== Hero ====== */
+    header.hero{position:relative; padding:120px 0 90px; overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr; gap:40px; align-items:center}
+    .sub{color:var(--muted)}
+    .orbs .orb{position:absolute; filter:blur(40px); opacity:.6; border-radius:50%}
+    .orbs .a{width:520px;height:520px;background:radial-gradient(circle at 35% 35%, var(--gold-2), transparent 60%);right:-140px;top:-180px;animation:float 15s ease-in-out infinite}
+    .orbs .b{width:600px;height:600px;background:radial-gradient(circle at 60% 40%, #c48f85, transparent 60%);left:-200px;bottom:-160px;animation:float 18s ease-in-out infinite reverse}
+    @keyframes float{50%{transform:translateY(-16px) translateX(12px); opacity:.75}}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow)}
+
+    /* ====== Gallery grid ====== */
+    .grid{display:grid;gap:18px}
+    .grid.g3{grid-template-columns:repeat(3,1fr)}
+    .grid.g4{grid-template-columns:repeat(4,1fr)}
+    figure.card{margin:0; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:18px; overflow:hidden; box-shadow:var(--shadow); transform:translateZ(0)}
+    figure.card img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:transform .5s ease, filter .5s ease}
+    figure.card:hover img{transform:scale(1.04); filter:contrast(1.05)}
+    figure.card figcaption{padding:12px 14px; font-size:14px; color:var(--muted); border-top:1px solid rgba(255,255,255,.06)}
+    .click{cursor:pointer}
+
+    /* ====== Pricing ====== */
+    .price{border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:22px; background:linear-gradient(180deg, rgba(196,143,133,.09), rgba(255,255,255,.02))}
+    .price .amt{font-weight:800; color:var(--gold); font-size:28px}
+
+    /* ====== Timeline / Process ====== */
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr); gap:16px}
+    .step{position:relative; padding:18px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
+    .step .num{position:absolute; top:-12px; left:-12px; width:34px; height:34px; display:grid; place-items:center; border-radius:999px; background:var(--gold); color:#2c1715; font-weight:900; box-shadow:0 8px 18px rgba(196,143,133,.5)}
+
+    /* ====== Testimonials carousel ====== */
+    .carousel{position:relative; overflow:hidden; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08)}
+    .track{display:flex; transition:transform .6s ease}
+    .slide{min-width:100%; padding:28px; background:rgba(255,255,255,.04)}
+    .dots{display:flex; gap:8px; justify-content:center; margin-top:10px}
+    .dots button{width:10px;height:10px;border-radius:50%;border:none;background:rgba(255,255,255,.25)}
+    .dots button.active{background:var(--gold)}
+
+    /* ====== Contact ====== */
+    .contact form{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .contact form .full{grid-column:1 / -1}
+    .input{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); padding:14px; border-radius:12px; color:var(--text)}
+
+    /* ====== Reveal animations ====== */
+    .reveal{opacity:0; transform: translateY(16px); transition: all .7s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    /* ====== Lightbox ====== */
+    .lightbox{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.8); z-index:60}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92vw; max-height:86vh; border-radius:14px; box-shadow:var(--shadow)}
+    .lb-caption{color:#fff; margin-top:10px; text-align:center; max-width:80ch}
+
+    /* ====== Responsive ====== */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid.g3{grid-template-columns:1fr 1fr}
+      .grid.g4{grid-template-columns:1fr 1fr}
+      .timeline{grid-template-columns:1fr 1fr}
+      .contact form{grid-template-columns:1fr}
+    }
+    @media (max-width: 560px){
+      .grid.g3,.grid.g4{grid-template-columns:1fr}
+    }
+  </style>
 </head>
-<body class="wedding page-enter">
-<div id="loader"><div class="spinner"></div></div>
-<header class="site-header fade-in">
-  <a class="brand" href="index.html" aria-label="Angel Creative Site Home">
-    <div class="logo-script">Angel Creative</div>
-    <div class="taglines">
-      <p>Capturing Stories Through Light & Emotion</p>
-      <p>Photography · Branding · Creative Artistry</p>
-    </div>
-  </a>
+<body>
+  <!-- NAV -->
   <nav class="nav">
-    <a class="{'active' if body_class=='home' else ''}" href="index.html">Home</a>
-    <a class="{'active' if body_class=='social' else ''}" href="social-republic.html">Social Republic</a>
-    <a class="{'active' if body_class=='wedding' else ''}" href="guy-heart.html">Wedding</a>
-    <a class="{'active' if body_class=='realestate' else ''}" href="magic-look.html">Real Estate</a>
-    <a class="{'active' if body_class=='beauty' else ''}" href="fame-fortune.html">Beauty & Portrait</a>
-    <a class="{'active' if body_class=='art' else ''}" href="guy-lev-or.html">Artwork</a>
-    <a class="{'active' if body_class=='contact' else ''}" href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="page-hero wedding">
-  <h2>Guy Heart Photography</h2>
-  <p class="lead">Wedding Photography — capturing emotional and memorable stories.</p>
-</section>
-<section class="container gallery-grid fade-in">
-  <figure class="image-frame glow"><img src="assets/3a2428b5bf0de0fc843d0ab5b16c240f.jpg" alt="Wedding photo 1"><figcaption>Moment 1 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/b556c96c799244e8664d8e3e3b84c61b.jpg" alt="Wedding photo 2"><figcaption>Moment 2 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/c8a5451a562bd7b534e74f1c1f870dd3.jpg" alt="Wedding photo 3"><figcaption>Moment 3 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/eaf11819a5b7a383a4fbfa104e40331d.jpg" alt="Wedding photo 4"><figcaption>Moment 4 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/96adf35cbfd8c372a5374e9df8d37b82.jpg" alt="Wedding photo 5"><figcaption>Moment 5 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/0831ed2865d3196684e47f36cfc54703.jpg" alt="Wedding photo 6"><figcaption>Moment 6 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/edfb3f1da3adc468ff068157a93f1023.jpg" alt="Wedding photo 7"><figcaption>Moment 7 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/videoframe_4392.png" alt="Wedding photo 8"><figcaption>Moment 8 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/videoframe_4666.png" alt="Wedding photo 9"><figcaption>Moment 9 — love, light, and honest emotion.</figcaption></figure><figure class="image-frame glow"><img src="assets/videoframe_8011.png" alt="Wedding photo 10"><figcaption>Moment 10 — love, light, and honest emotion.</figcaption></figure>
-</section>
-
-<footer class="site-footer fade-in">
-  <div class="footer-watermark">Angel Creative</div>
-  <div class="footer-grid">
-    <div>
-      <h4>Contact</h4>
-      <p>📧 <a href="mailto:angeldj1103@gmail.com">angeldj1103@gmail.com</a></p>
-      <p>📱 <a href="tel:+66650292911">0650292911</a></p>
-      <p>📍 Bangkok, Thailand</p>
-    </div>
-    <div>
-      <h4>About</h4>
-      <p>Elegant, fast, SEO-ready photography websites with thoughtful storytelling.</p>
-    </div>
-    <div>
-      <h4>Share</h4>
-      <p>#AngelCreative · A Timeless Love</p>
-    </div>
-    <div class="follow">
-      <h4>Follow Us</h4>
-      <div class="socials fade-in">
-        <a class="social-btn" href="https://www.instagram.com/senglulu?igsh=ZHl5YnN6eXgxOXIw&utm_source=ig_contact_invite" target="_blank" rel="noopener" title="Follow on Instagram 💕">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a class="social-btn" href="https://line.me/ti/p/q-AtEPb5mv" target="_blank" rel="noopener" title="Chat on LINE 💬">
-          <i class="fab fa-line"></i>
-        </a>
+    <div class="container inner">
+      <div class="brand">
+        <div class="crest"></div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.5px">Guy Heart Photography</div>
+          <small style="color:var(--muted)">Destination Weddings • Editorial Portraits • Films</small>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#gallery">Gallery</a>
+        <a href="#packages">Packages</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="btn">Book</a>
       </div>
     </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="orbs">
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+    </div>
+    <div class="container hero-grid reveal">
+      <div>
+        <span class="btn" style="pointer-events:none;border-color:rgba(196,143,133,.5);color:var(--gold)">Luxury Wedding Stories</span>
+        <h1 style="margin-top:14px">Timeless photographs and <span style="color:var(--gold)">cinematic films</span> for the moments that matter.</h1>
+        <p class="sub">We document honest emotions with editorial finesse — from intimate elopements to grand destination celebrations. Every collection includes creative direction, signature color grading, and museum‑quality delivery.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn filled" href="#packages">View Packages</a>
+          <a class="btn" href="#gallery">Explore Gallery</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="margin-bottom:6px">Included with every wedding</h3>
+        <ul style="list-style:none;padding:0;margin:0;color:var(--muted)">
+          <li>• Pre‑wedding consultation &amp; timeline planning</li>
+          <li>• Lead photographer + second shooter (per collection)</li>
+          <li>• Signature color &amp; B/W set, print‑ready</li>
+          <li>• Online gallery &amp; archival delivery</li>
+          <li>• Optional: Super‑8/Film rolls, drone, teaser film</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="reveal">Featured Gallery</h2>
+      <p class="sub reveal">Click any image to open it large. Descriptions appear beneath each photo.</p>
+      <div class="grid g3" id="galleryGrid" style="margin-top:18px"></div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="section" style="padding-top:0">
+    <div class="container">
+      <h2 class="reveal">Wedding Collections</h2>
+      <p class="sub reveal">Transparent options for different celebration sizes. Ask about weekday or destination rates.</p>
+      <div class="grid g3" style="margin-top:18px">
+        <div class="price reveal">
+          <h3>Micro Wedding</h3>
+          <div class="amt">฿55,000 – 95,000</div>
+          <p class="sub">3–6 hours • 120–250 photos</p>
+          <ul style="list-style:none;padding:0;margin:10px 0;color:var(--muted)">
+            <li>• Intimate ceremonies &amp; elopements</li>
+            <li>• Creative portraits &amp; highlights</li>
+            <li>• Optional: 1–2 Film rolls</li>
+          </ul>
+        </div>
+        <div class="price reveal" style="border-width:2px">
+          <h3>Just Right</h3>
+          <div class="amt">฿118,000</div>
+          <p class="sub">8 hours • ~350 photos</p>
+          <ul style="list-style:none;padding:0;margin:10px 0;color:var(--muted)">
+            <li>• Full ceremony &amp; reception coverage</li>
+            <li>• Second photographer</li>
+            <li>• Highlight short film add‑on available</li>
+          </ul>
+        </div>
+        <div class="price reveal">
+          <h3>Dawn to Dusk</h3>
+          <div class="amt">฿145,000 – 165,000</div>
+          <p class="sub">10–12 hours • 550–700 photos</p>
+          <ul style="list-style:none;padding:0;margin:10px 0;color:var(--muted)">
+            <li>• Morning prep to sparkler exit</li>
+            <li>• Two photographers + assistant</li>
+            <li>• Priority edit &amp; next‑day preview</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel reveal" style="margin-top:18px">
+        <h3>Film Add‑Ons</h3>
+        <p class="sub">Super‑8 or 35mm film for nostalgic texture</p>
+        <ul style="list-style:none;padding:0;margin:10px 0;color:var(--muted)">
+          <li>• 2–4 rolls: ฿15,000 – 25,000 → includes development &amp; scans</li>
+          <li>• Cinematic teaser film (45–60s): on request</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section">
+    <div class="container">
+      <h2 class="reveal">Our Process</h2>
+      <p class="sub reveal">Elegant planning for effortless wedding days.</p>
+      <div class="timeline" style="margin-top:18px">
+        <div class="step reveal"><div class="num">1</div>
+          <h3>Discovery</h3>
+          <p>Consultation call to learn your story, venue, and vision. We propose a collection that fits.</p>
+        </div>
+        <div class="step reveal"><div class="num">2</div>
+          <h3>Planning</h3>
+          <p>Timeline design, moodboard, and location scout. We coordinate with your planner.</p>
+        </div>
+        <div class="step reveal"><div class="num">3</div>
+          <h3>The Wedding</h3>
+          <p>Directed portraits + documentary candids. We capture the quiet and the grand.</p>
+        </div>
+        <div class="step reveal"><div class="num">4</div>
+          <h3>Delivery</h3>
+          <p>Curated gallery with signature color grade. Optional album &amp; fine‑art prints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="carousel reveal" id="carousel">
+        <div class="track">
+          <div class="slide">
+            <h3>“Our film felt like a dream — elegant, emotional, and beautifully paced.”</h3>
+            <p class="sub">— Lina &amp; Marco, Phuket</p>
+          </div>
+          <div class="slide">
+            <h3>“Every moment was captured with taste. We relive the day every time we open the gallery.”</h3>
+            <p class="sub">— Nicha &amp; Poom, Bangkok</p>
+          </div>
+          <div class="slide">
+            <h3>“Professional, calm, and creative — the team blended in and made us feel at ease.”</h3>
+            <p class="sub">— Aisha &amp; Rahul, Krabi</p>
+          </div>
+        </div>
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="reveal">Book Your Date</h2>
+      <p class="sub reveal">Share your details for a bespoke quote within 24 hours.</p>
+      <form class="reveal" onsubmit="event.preventDefault(); alert('Thank you! We\'ll be in touch shortly.'); this.reset();">
+        <input class="input" placeholder="Full name" required />
+        <input class="input" placeholder="Email" type="email" required />
+        <input class="input" placeholder="Phone / Line" />
+        <input class="input" placeholder="Wedding date &amp; venue" />
+        <textarea class="input full" rows="4" placeholder="Tell us about your celebration (size, style, film add‑ons)"></textarea>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn filled" type="submit">Request Quote</button>
+          <span class="sub">Or email: hello@guyheart.example</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer style="padding:34px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)">
+    <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Guy Heart Photography — Thailand &amp; Destinations Worldwide</div>
+      <div>Instagram • Facebook • MyWed</div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+    <div style="text-align:center">
+      <img id="lbImg" alt="Large preview" />
+      <div class="lb-caption" id="lbCap"></div>
+      <div style="margin-top:10px"><button class="btn" id="lbClose">Close</button></div>
+    </div>
   </div>
-  <p class="copy">© 2025 Angel Creative Site — Designed by Angel Creative</p>
-</footer>
-<button id="backToTop" aria-label="Back to top">↑</button>
-<script src="script.js"></script>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target)} })
+    }, {threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Gallery data (replace URLs with your own portfolio). Each item has src, alt, caption.
+    const gallery = [
+      {src:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop', alt:'First look in tropical garden', cap:'First look in a tropical garden — natural light portraits with editorial finesse.'},
+      {src:'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600&auto=format&fit=crop', alt:'Ceremony under banyan tree', cap:'Ceremony under a banyan tree — candid emotions, elegant composition.'},
+      {src:'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop', alt:'Sunset couple by the sea', cap:'Sunset by the sea — golden hour color grading for timeless warmth.'},
+      {src:'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop', alt:'Editorial bridal portrait', cap:'Editorial bridal portrait — sculpted light and graceful posture.'},
+      {src:'https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?q=80&w=1600&auto=format&fit=crop', alt:'Reception details', cap:'Reception details — florals, textures, and fine‑art flat‑lays.'},
+      {src:'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop', alt:'Sparkler exit', cap:'Sparkler exit — motion blur with cinematic storytelling.'}
+    ];
+
+    const grid = document.getElementById('galleryGrid');
+    gallery.forEach(item=>{
+      const fig = document.createElement('figure');
+      fig.className = 'card reveal click';
+      fig.innerHTML = `<img src="${item.src}" alt="${item.alt}"><figcaption>${item.cap}</figcaption>`;
+      fig.addEventListener('click', ()=>openLightbox(item.src, item.cap));
+      grid.appendChild(fig);
+      io.observe(fig);
+    });
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+    const lbClose = document.getElementById('lbClose');
+    function openLightbox(src, cap){ lbImg.src = src; lbCap.textContent = cap; lb.classList.add('open'); }
+    function closeLightbox(){ lb.classList.remove('open'); lbImg.src=''; lbCap.textContent=''; }
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+
+    // Testimonials carousel
+    const track = document.querySelector('.track');
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dots  = document.getElementById('dots');
+    let idx = 0;
+    const go = (i)=>{ idx=(i+slides.length)%slides.length; track.style.transform=`translateX(${-idx*100}%)`; Array.from(dots.children).forEach((d,di)=>d.classList.toggle('active', di===idx)); };
+    slides.forEach((_,i)=>{ const b=document.createElement('button'); b.addEventListener('click',()=>go(i)); dots.appendChild(b); });
+    go(0); setInterval(()=>go(idx+1), 5200);
+  </script>
 </body>
 </html>
